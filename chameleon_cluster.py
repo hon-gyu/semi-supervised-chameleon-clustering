@@ -21,7 +21,7 @@ def partition_phase(graph, n_cluster_final=30, exclude_cluster=None):
     while n_cluster < n_cluster_final:
         partition(graph, exclude_cluster=exclude_cluster)
         n_cluster = pd.Series(nx.get_node_attributes(graph, 'cluster')).nunique()
-        print(f'Number of clusters: {n_cluster}')
+        # print(f'Number of clusters: {n_cluster}')
 
 
 def merge_phase(graph, n_cluster_final, alpha=2, cl_mat=None):

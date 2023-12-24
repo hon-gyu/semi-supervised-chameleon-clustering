@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.datasets import make_blobs
 
 def generate_synthetic_data_with_hierarchy(n_samples=10_000, n_features=5, n_clusters=6, random_state=4, cluster_std=2):
-    X, y = make_blobs(n_samples=n_samples, n_features=n_features, centers=n_clusters, random_state=random_state, cluster_std=1)
+    X, y = make_blobs(n_samples=n_samples, n_features=n_features, centers=n_clusters, random_state=random_state, cluster_std=cluster_std)
     
     # Add hierarchy to the clusters
     data = pd.DataFrame(X, columns=[f"feat{i}" for i in range(1, n_features+1)])
