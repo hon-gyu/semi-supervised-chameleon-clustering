@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import networkx as nx
 from rich.progress import Progress, track
-from graph import partition, merge_closest_clusters
+from semi_supervised_chameleon_clustering.graph import partition, merge_closest_clusters
 
 def partition_phase(graph, n_cluster_final=30, exclude_cluster=None):
     """Partition the graph until the number of clusters reaches n_cluster_final
