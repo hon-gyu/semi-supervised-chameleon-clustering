@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+semi_supervised_chameleon_clustering/__init__.py
+semi_supervised_chameleon_clustering/chameleon_cluster.py
+semi_supervised_chameleon_clustering/graph.py
+semi_supervised_chameleon_clustering/make_synthetic_data.py
+semi_supervised_chameleon_clustering/utils.py
+semi_supervised_chameleon_clustering.egg-info/PKG-INFO
+semi_supervised_chameleon_clustering.egg-info/SOURCES.txt
+semi_supervised_chameleon_clustering.egg-info/dependency_links.txt
+semi_supervised_chameleon_clustering.egg-info/top_level.txt
