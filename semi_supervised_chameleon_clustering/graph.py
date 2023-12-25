@@ -35,6 +35,30 @@ def knn_graph(df, n_neighbors=30, mode='distance', metric='euclidean', include_s
     return graph
 
 
+def knn_graph_f_distance_matrix(n_neighbors=30, dist_mat=None, dist_to_sim=None):
+    """create knn graph from precomputed distance matrix"""
+    graph = nx.Graph()
+
+    # add node
+    graph.add_nodes_from(range(dist_mat.shape[0]))
+
+    # add edge with similarity as edge weight
+    for i in range(dist_mat.shape[0]):
+        distances = list(enumerate(dist_mat[i]))
+        distances.sort(key=lambda x: x[1])
+        neighbors = distances[1:n_neighbors+1]
+        
+        for neighbor in neighbors:
+            j = neighbor[0]  # index or neighbor
+            weight = neighbor[1]
+            # transform distance to similarity
+            weight = 1 / (1 + weight) if dist_to_sim is None else dist_to_sim(weight)
+            weight = int(weight * 10000)
+            graph.add_edge(i, j, weight=weight)
+            
+    return graph
+
+
 def ensemble_similarity_graph(df):
     """get similarity graph from DataFrame using ensemble clustering"""
     df = df.copy()

@@ -38,7 +38,7 @@ def merge_phase(graph, n_cluster_final, alpha=2, cl_mat=None):
     n_cluster = cluster_idxs['cluster'].nunique()
     if n_cluster <= n_cluster_final:
         raise ValueError('No need to merge')
-    n_merges = n_cluster - n_cluster_final
+    n_merges = n_cluster - n_cluster_final - 1
 
     with Progress() as p:
         task1 = p.add_task("[red]Processing...", total=n_merges)
